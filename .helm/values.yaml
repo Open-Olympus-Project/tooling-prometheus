@@ -121,8 +121,11 @@ alertmanager:
     ## Must be provided if Ingress is enabled
     ##
     hosts:
-       - alertmanager.madsht.com
     #   - domain.com/alertmanager
+
+    paths:
+    - /alertmanager
+    - /alertmanager/(.*)
 
     ## Extra paths to prepend to every host configuration. This is useful when working with annotation based services.
     extraPaths: []
