@@ -742,8 +742,10 @@ server:
     ## Must be provided if Ingress is enabled
     ##
     hosts:
-      - prometheus.madsht.com
     #   - domain.com/prometheus
+
+    paths:
+      - /prometheus
 
     ## Extra paths to prepend to every host configuration. This is useful when working with annotation based services.
     extraPaths: []
@@ -1042,6 +1044,8 @@ pushgateway:
     #   - pushgateway.domain.com
     #   - domain.com/pushgateway
 
+    paths: []
+
     ## Extra paths to prepend to every host configuration. This is useful when working with annotation based services.
     extraPaths: []
     # - path: /*
@@ -1241,14 +1245,14 @@ serverFiles:
   ## DEPRECATED DEFAULT VALUE, unless explicitly naming your files, please use recording_rules.yml
   rules: {}
 
-  bucket.yml:
-    type: AZURE
-    config:
-      storage_account: "observabilitymetrics1234"
-      storage_account_key: "J6BtTV411cx4/Jd8yMYqJUXO9cdUQNJ0GiXlqjg83M2cGok7TFrpvFmiHcgDlZ8cE2ZMXfMTTFw0m0aaAwGJug=="
-      container: "thanos"
-      endpoint: ""
-      max_retries: 3
+  # bucket.yml:
+  #   type: AZURE
+  #   config:
+  #     storage_account: ""
+  #     storage_account_key: ""
+  #     container: "thanos"
+  #     endpoint: ""
+  #     max_retries: 3
 
   prometheus.yml:
     rule_files:
