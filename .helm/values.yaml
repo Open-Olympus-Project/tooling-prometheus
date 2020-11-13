@@ -114,7 +114,7 @@ alertmanager:
       kubernetes.io/tls-acme: 'true'
       cert-manager.io/cluster-issuer: letsencrypt-prod
       nginx.ingress.kubernetes.io/backend-protocol: HTTPS
-
+      nginx.ingress.kubernetes.io/ssl-passthrough: 'true'
 
     ## alertmanager Ingress additional labels
     ##
@@ -738,7 +738,7 @@ server:
       kubernetes.io/tls-acme: 'true'
       cert-manager.io/cluster-issuer: letsencrypt-prod
       nginx.ingress.kubernetes.io/backend-protocol: HTTPS
-      # nginx.ingress.kubernetes.io/ssl-passthrough: true
+      nginx.ingress.kubernetes.io/ssl-passthrough: 'true'
 
     ## Prometheus server Ingress additional labels
     ##
