@@ -1273,15 +1273,7 @@ serverFiles:
       - job_name: prometheus
         static_configs:
           - targets:
-            - localhost:9090
-      - job_name: loggingtestapp
-        static_configs:
-          - targets:
-            - 52.143.3.0
-      - job_name: azuremetricsaxporter
-        static_configs:
-          - targets:
-            - azure-metrics-exporter-service.azuremetricsexporter:9276
+            - localhost:9090/prometheus
 
       # A scrape configuration for running Prometheus on a Kubernetes cluster.
       # This uses separate scrape configs for cluster components (i.e. API server, node)
