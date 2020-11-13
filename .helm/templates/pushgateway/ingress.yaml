@@ -1,6 +1,6 @@
 {{- if and .Values.pushgateway.enabled .Values.pushgateway.ingress.enabled -}}
 {{- $releaseName := .Release.Name -}}
-{{- $paths := .Values.server.ingress.paths -}}
+{{- $paths := .Values.pushgateway.ingress.paths -}}
 {{- $serviceName := include "prometheus.pushgateway.fullname" . }}
 {{- $servicePort := .Values.pushgateway.service.servicePort -}}
 {{- $extraPaths := .Values.pushgateway.ingress.extraPaths -}}

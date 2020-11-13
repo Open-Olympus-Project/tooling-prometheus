@@ -1,6 +1,6 @@
 {{- if and .Values.alertmanager.enabled .Values.alertmanager.ingress.enabled -}}
 {{- $releaseName := .Release.Name -}}
-{{- $paths := .Values.server.ingress.paths -}}
+{{- $paths := .Values.alertmanager.ingress.paths -}}
 {{- $serviceName := include "prometheus.alertmanager.fullname" . }}
 {{- $servicePort := .Values.alertmanager.service.servicePort -}}
 {{- $extraPaths := .Values.alertmanager.ingress.extraPaths -}}
