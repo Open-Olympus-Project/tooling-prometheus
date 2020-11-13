@@ -590,7 +590,7 @@ server:
         - "--grpc-grace-period=1s"
         - "--http-address=0.0.0.0:10902"
         - "--http-grace-period=1s"
-        - "--prometheus.url=http://127.0.0.1:9090"
+        - "--prometheus.url=http://prometheus-server"
         - "--tsdb.path=/data"
         - "--objstore.config-file=/etc/config/bucket.yml"
       volumeMounts:
