@@ -746,6 +746,7 @@ server:
 
     paths:
       - /prometheus
+      - /prometheus/(.*)
 
     ## Extra paths to prepend to every host configuration. This is useful when working with annotation based services.
     extraPaths: []
@@ -1044,7 +1045,9 @@ pushgateway:
     #   - pushgateway.domain.com
     #   - domain.com/pushgateway
 
-    paths: []
+    paths: 
+      - /pushgateway
+      - /pushgateway/(.*)
 
     ## Extra paths to prepend to every host configuration. This is useful when working with annotation based services.
     extraPaths: []
