@@ -31,7 +31,7 @@ spec:
 {{ if $extraPaths }}
 {{ toYaml $extraPaths | indent 10 }}
 {{- end }}
-  {{- range $p := $paths }}
+  {{- range $p := .Values.alertmanager.ingress.paths }}
           - path: {{ $p }}
             backend:
               serviceName: {{ $serviceName }}

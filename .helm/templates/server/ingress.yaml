@@ -32,7 +32,7 @@ spec:
 {{ if $extraPaths }}
 {{ toYaml $extraPaths | indent 10 }}
 {{- end }}
-  {{- range $p := $paths }}
+  {{- range $p := .Values.server.ingress.paths }}
           - path: {{ $p }}
             backend:
               serviceName: {{ $serviceName }}
