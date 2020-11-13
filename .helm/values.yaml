@@ -619,7 +619,7 @@ server:
   ## (Optional)
   prefixURL: ""
 
-  ## External URL which can access alertmanager
+  ## External URL which can access server
   ## Maybe same with Ingress host name
   baseURL: ""
 
@@ -1264,10 +1264,6 @@ serverFiles:
     ## Below two files are DEPRECATED will be removed from this default values file
       - /etc/config/rules
       - /etc/config/alerts
-
-    global:
-      external_labels:
-        prometheus: Prometheus
 
     scrape_configs:
       - job_name: prometheus
