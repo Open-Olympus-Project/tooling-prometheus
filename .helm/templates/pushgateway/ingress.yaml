@@ -1,5 +1,6 @@
 {{- if and .Values.pushgateway.enabled .Values.pushgateway.ingress.enabled -}}
 {{- $releaseName := .Release.Name -}}
+{{- $paths := .Values.server.ingress.paths -}}
 {{- $serviceName := include "prometheus.pushgateway.fullname" . }}
 {{- $servicePort := .Values.pushgateway.service.servicePort -}}
 {{- $extraPaths := .Values.pushgateway.ingress.extraPaths -}}
@@ -28,7 +29,7 @@ spec:
 {{ if $extraPaths }}
 {{ toYaml $extraPaths | indent 10 }}
 {{- end }}
-  {{- range $p := .Values.pushgateway.ingress.paths }}
+  {{- range $p := $paths }}
           - path: {{ $p }}
             backend:
               serviceName: {{ $serviceName }}

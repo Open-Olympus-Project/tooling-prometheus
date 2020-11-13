@@ -1,6 +1,7 @@
 {{- if .Values.server.enabled -}}
 {{- if .Values.server.ingress.enabled -}}
 {{- $releaseName := .Release.Name -}}
+{{- $paths := .Values.server.ingress.paths -}}
 {{- $serviceName := include "prometheus.server.fullname" . }}
 {{- $servicePort := .Values.server.service.servicePort -}}
 {{- $extraPaths := .Values.server.ingress.extraPaths -}}
@@ -32,7 +33,7 @@ spec:
 {{ if $extraPaths }}
 {{ toYaml $extraPaths | indent 10 }}
 {{- end }}
-  {{- range $p := .Values.server.ingress.paths }}
+  {{- range $p := $paths }}
           - path: {{ $p }}
             backend:
               serviceName: {{ $serviceName }}
