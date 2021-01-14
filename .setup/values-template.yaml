@@ -1,0 +1,49 @@
+alertmanager:
+  ## External URL which can access alertmanager
+  baseURL: "https://${fqdn}/alertmanager"
+  prefixURL: "/alertmanager"
+
+  extraFlags:
+  - web.route-prefix=/alertmanager
+
+  ingress:
+    hosts:
+    - ${fqdn}
+
+    tls:
+    - secretName: alertmanager-tls
+      hosts:
+        - ${fqdn}
+
+server:
+  ## External URL which can access alertmanager
+  ## Maybe same with Ingress host name
+  baseURL: "https://${fqdn}/prometheus"
+  prefixURL: "/prometheus"
+
+  extraFlags:
+  - web.enable-lifecycle
+  - web.route-prefix=/prometheus
+
+
+  ingress:
+    hosts:
+    - ${fqdn}
+
+    tls:
+    - secretName: prometheus-tls
+      hosts:
+        - ${fqdn}
+
+## Prometheus server ConfigMap entries
+##
+serverFiles:
+
+  bucket.yml:
+    type: AZURE
+    config:
+      storage_account: "<account-name>"
+      storage_account_key: "<account-key>"
+      container: "thanos"
+      endpoint: ""
+      max_retries: 3
