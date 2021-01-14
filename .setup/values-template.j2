@@ -1,6 +1,6 @@
 alertmanager:
   ## External URL which can access alertmanager
-  baseURL: "https://${fqdn}/alertmanager"
+  baseURL: "https://{{ fqdn }}/alertmanager"
   prefixURL: "/alertmanager"
 
   extraFlags:
@@ -8,17 +8,17 @@ alertmanager:
 
   ingress:
     hosts:
-    - ${fqdn}
+    - {{ fqdn }}
 
     tls:
     - secretName: alertmanager-tls
       hosts:
-        - ${fqdn}
+        - {{ fqdn }}
 
 server:
   ## External URL which can access alertmanager
   ## Maybe same with Ingress host name
-  baseURL: "https://${fqdn}/prometheus"
+  baseURL: "https://{{ fqdn }}/prometheus"
   prefixURL: "/prometheus"
 
   extraFlags:
@@ -28,12 +28,12 @@ server:
 
   ingress:
     hosts:
-    - ${fqdn}
+    - {{ fqdn }}
 
     tls:
     - secretName: prometheus-tls
       hosts:
-        - ${fqdn}
+        - {{ fqdn }}
 
 ## Prometheus server ConfigMap entries
 ##
