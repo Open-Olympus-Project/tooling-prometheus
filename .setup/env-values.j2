@@ -1,0 +1,12 @@
+## Prometheus server ConfigMap entries
+##
+serverFiles:
+
+  bucket.yml:
+    type: AZURE
+    config:
+      storage_account: "{{ sa_name }}"
+      storage_account_key: "{{ sa_key }}"
+      container: "thanos"
+      endpoint: ""
+      max_retries: 3
