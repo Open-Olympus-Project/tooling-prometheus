@@ -33,7 +33,7 @@ server:
         - "--grpc-grace-period=1s"
         - "--http-address=0.0.0.0:10902"
         - "--http-grace-period=1s"
-        - "--prometheus.url=http://tooling-prometheus-server/prometheus"
+        - "--prometheus.url=http://tooling-prometheus-{{ dev }}-server/prometheus"
         - "--tsdb.path=/data"
         - "--objstore.config-file=/vault/secrets/bucket.yml"
       volumeMounts:
