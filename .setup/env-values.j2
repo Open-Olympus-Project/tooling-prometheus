@@ -1,7 +1,7 @@
 server:
   podAnnotations:
     vault.hashicorp.com/agent-inject: "true"
-    vault.hashicorp.com/auth-path: "auth/prometheus-{{ dev }}"
+    vault.hashicorp.com/auth-path: "auth/prometheus-{{ env }}"
     vault.hashicorp.com/role: "k8s-secrets"
     vault.hashicorp.com/agent-inject-secret-bucket.yml: "k8s/data/secrets/storage-account-creds"
     vault.hashicorp.com/agent-inject-template-bucket.yml: |
@@ -33,7 +33,7 @@ server:
         - "--grpc-grace-period=1s"
         - "--http-address=0.0.0.0:10902"
         - "--http-grace-period=1s"
-        - "--prometheus.url=http://tooling-prometheus-{{ dev }}-server/prometheus"
+        - "--prometheus.url=http://tooling-prometheus-{{ env }}-server/prometheus"
         - "--tsdb.path=/data"
         - "--objstore.config-file=/vault/secrets/bucket.yml"
       volumeMounts:
