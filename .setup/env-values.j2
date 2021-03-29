@@ -44,7 +44,13 @@ server:
           mountPath: /data
           
   ingress:
-    enabled: false
+    hosts:
+    - {{ fqdn }}
+
+    tls:
+    - secretName: prometheus-tls
+      hosts:
+        - {{ fqdn }}
     
 alertmanager:
   ingress:
