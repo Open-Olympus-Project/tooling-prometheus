@@ -43,6 +43,16 @@ server:
         - name: storage-volume
           mountPath: /data
           
+  ## External URL which can access alertmanager
+  ## Maybe same with Ingress host name
+  baseURL: "https://{{ fqdn }}/prometheus"
+  prefixURL: "/prometheus"
+
+  extraFlags:
+  - web.enable-lifecycle
+  - web.route-prefix=/prometheus
+
+
   ingress:
     hosts:
     - {{ fqdn }}
