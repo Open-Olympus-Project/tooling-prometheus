@@ -49,7 +49,7 @@ spec:
           imagePullPolicy: "{{ .Values.pushgateway.image.pullPolicy }}"
           args:
           {{- range $key, $value := .Values.pushgateway.extraArgs }}
-            - --{{ $key }}={{ $value }}
+            - {{ $value }}
           {{- end }}
           ports:
             - containerPort: 9091
