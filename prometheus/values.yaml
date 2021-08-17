@@ -1689,3 +1689,5 @@ prometheus:
 
   # Force namespace of namespaced resources
   forceNamespace: null
+
+# prometheus-pushgateway:
