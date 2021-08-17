@@ -1,6 +1,8 @@
 standalonePushgateway:
   enabled: false
 
+# prometheus-pushgateway:
+
 prometheus:
   rbac:
     create: true
@@ -1693,4 +1695,3 @@ prometheus:
   # Force namespace of namespaced resources
   forceNamespace: null
 
-# prometheus-pushgateway:
