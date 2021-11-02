@@ -1,9 +1,0 @@
-dependencies:
-- name: kube-state-metrics
-  repository: https://kubernetes.github.io/kube-state-metrics
-  version: 2.13.3
-- name: prometheus-pushgateway
-  repository: https://prometheus-community.github.io/helm-charts
-  version: 1.10.1
-digest: sha256:8b713a931bb190dc72747a2f019f043c46d32d4776d37696429915535de0e5d7
-generated: "2021-11-02T15:07:39.7130914+01:00"
